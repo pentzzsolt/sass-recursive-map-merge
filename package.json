@@ -1,0 +1,23 @@
+{
+  "name": "sass-recursive-map-merge",
+  "version": "1.0.0",
+  "description": "A lightweight Sass function that merges multidimensional maps recursively.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pentzzsolt/sass-recursive-map-merge.git"
+  },
+  "keywords": [
+    "sass",
+    "sass-functions",
+    "sass-function",
+    "scss",
+    "scss-functions",
+    "scss-function"
+  ],
+  "author": "Zsolt Pentz <pentzzsolt@gmail.com> (https://pentzzsolt.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pentzzsolt/sass-recursive-map-merge/issues"
+  },
+  "homepage": "https://github.com/pentzzsolt/sass-recursive-map-merge#readme"
+}
