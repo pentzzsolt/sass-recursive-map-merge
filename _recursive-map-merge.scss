@@ -1,5 +1,5 @@
 @function recursive-map-merge($map1, $map2) {
-    @if (type-of($map1) == map and type-of($map2) == map) {
+    @if ((type-of($map1) == map or type-of($map1) == list) and (type-of($map2) == map or type-of($map2) == list)) {
         $result: $map1;
         @each $key, $value in $map2 {
             @if (type-of(map-get($result, $key)) == map and type-of($value) == map) {
