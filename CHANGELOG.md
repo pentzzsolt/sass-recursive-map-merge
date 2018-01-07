@@ -9,4 +9,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - [CHANGELOG.md](CHANGELOG.md) file.
 
 ### Fixed
-- Issue #1.
+- [Issue #1](issues/1).
