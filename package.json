@@ -14,10 +14,17 @@
     "scss-functions",
     "scss-function"
   ],
+  "scripts": {
+    "test": "node-sass tests/_tests.scss --include-path / --include-path node_modules"
+  },
   "author": "Zsolt Pentz <pentzzsolt@gmail.com> (https://pentzzsolt.github.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pentzzsolt/sass-recursive-map-merge/issues"
   },
-  "homepage": "https://github.com/pentzzsolt/sass-recursive-map-merge#readme"
+  "homepage": "https://github.com/pentzzsolt/sass-recursive-map-merge#readme",
+  "devDependencies": {
+    "node-sass": "^3.13.1",
+    "sassytester": "^1.1.0"
+  }
 }
