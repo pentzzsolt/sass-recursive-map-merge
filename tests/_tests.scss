@@ -1,0 +1,48 @@
+@import 'sassytester/sass/SassyTester';
+@import 'recursive-map-merge';
+
+/* ==========================================================================
+   Section comment block
+   ========================================================================== */
+
+$colors1: (
+	primary: (
+		light: #f66124,
+		dark: #ad3707
+	)
+);
+
+$colors2: (
+	primary: (
+		base: #de4709
+	)
+);
+
+$colors: (
+	primary: (
+		light: #f66124,
+		dark: #ad3707,
+		base: #de4709
+	)
+);
+
+$test2map1: ();
+$test2map2: (
+	a: (
+		1: 1,
+		2: 2
+	)
+);
+$test2result: (
+	a: (
+		1: 1,
+		2: 2
+	)
+);
+
+$tests-recursive-map-merge: (
+	($colors1, $colors2): $colors,
+	($test2map1, $test2map2): $test2result
+);
+
+@include run(test('recursive-map-merge', $tests-recursive-map-merge));
