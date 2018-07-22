@@ -1,0 +1,6 @@
+{
+  "extends": "stylelint-config-oak",
+  rules: {
+    "indentation": "tab"
+  }
+}

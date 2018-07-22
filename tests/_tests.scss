@@ -2,8 +2,8 @@
    Import test library and function to be tested.
    ========================================================================== */
 
-@import 'sassytester/sass/SassyTester';
-@import 'recursive-map-merge';
+@import "sassytester/sass/SassyTester";
+@import "recursive-map-merge";
 
 /* ==========================================================================
    Set up test cases.
@@ -11,8 +11,7 @@
 
 /* Variables for type checking.
    ========================================================================== */
-
-$string: 'string';
+$string: "string";
 $number: 42;
 $bool: true;
 $color: #323232;
@@ -25,49 +24,36 @@ $null: null;
 
 /* One-dimensional maps.
    ========================================================================== */
-
 $test1a: (
 	1: 1,
 	2: 2
 );
-
 $test1b: (
 	3: 3,
 	4: 4
 );
-
 $test1result: map-merge($test1a, $test1b);
-
 $test2a: ();
-
 $test2b: (
 	1: 1,
 	2: 2
 );
-
 $test2result: (
 	1: 1,
 	2: 2
 );
-
 $test3a: (
 	1: 1,
 	2: 2
 );
-
 $test3b: ();
-
 $test3result: (
 	1: 1,
 	2: 2
 );
-
 $test4a: ();
-
 $test4b: ();
-
 $test4result: ();
-
 $tests-recursive-map-merge: (
 	($string, $string): $null,
 	($string, $number): $null,
@@ -124,4 +110,4 @@ $tests-recursive-map-merge: (
 	($test4a, $test4b): $test4result
 );
 
-@include run(test('recursive-map-merge', $tests-recursive-map-merge));
+@include run(test("recursive-map-merge", $tests-recursive-map-merge));

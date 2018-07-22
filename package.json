@@ -15,7 +15,7 @@
     "scss-function"
   ],
   "scripts": {
-    "test": "node-sass tests/_tests.scss --include-path / --include-path node_modules"
+    "test": "stylelint \"_recursive-map-merge.scss\" \"tests/_tests.scss\" && node-sass tests/_tests.scss --include-path / --include-path node_modules"
   },
   "author": "Zsolt Pentz <pentzzsolt@gmail.com> (https://pentzzsolt.github.io)",
   "license": "MIT",
@@ -25,6 +25,8 @@
   "homepage": "https://github.com/pentzzsolt/sass-recursive-map-merge#readme",
   "devDependencies": {
     "node-sass": "^3.13.1",
-    "sassytester": "^1.1.0"
+    "sassytester": "^1.1.0",
+    "stylelint": "^9.3.0",
+    "stylelint-config-oak": "^1.0.0"
   }
 }
