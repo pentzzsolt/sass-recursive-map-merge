@@ -1,48 +1,127 @@
+/* ==========================================================================
+   Import test library and function to be tested.
+   ========================================================================== */
+
 @import 'sassytester/sass/SassyTester';
 @import 'recursive-map-merge';
 
 /* ==========================================================================
-   Section comment block
+   Set up test cases.
    ========================================================================== */
 
-$colors1: (
-	primary: (
-		light: #f66124,
-		dark: #ad3707
-	)
+/* Variables for type checking.
+   ========================================================================== */
+
+$string: 'string';
+$number: 42;
+$bool: true;
+$color: #323232;
+$list: (1 2 3);
+$map: (
+	1: 1,
+	2: 2
+);
+$null: null;
+
+/* One-dimensional maps.
+   ========================================================================== */
+
+$test1a: (
+	1: 1,
+	2: 2
 );
 
-$colors2: (
-	primary: (
-		base: #de4709
-	)
+$test1b: (
+	3: 3,
+	4: 4
 );
 
-$colors: (
-	primary: (
-		light: #f66124,
-		dark: #ad3707,
-		base: #de4709
-	)
+$test1result: map-merge($test1a, $test1b);
+
+$test2a: ();
+
+$test2b: (
+	1: 1,
+	2: 2
 );
 
-$test2map1: ();
-$test2map2: (
-	a: (
-		1: 1,
-		2: 2
-	)
-);
 $test2result: (
-	a: (
-		1: 1,
-		2: 2
-	)
+	1: 1,
+	2: 2
 );
+
+$test3a: (
+	1: 1,
+	2: 2
+);
+
+$test3b: ();
+
+$test3result: (
+	1: 1,
+	2: 2
+);
+
+$test4a: ();
+
+$test4b: ();
+
+$test4result: ();
 
 $tests-recursive-map-merge: (
-	($colors1, $colors2): $colors,
-	($test2map1, $test2map2): $test2result
+	($string, $string): $null,
+	($string, $number): $null,
+	($string, $bool): $null,
+	($string, $color): $null,
+	($string, $list): $null,
+	($string, $map): $null,
+	($string, $null): $null,
+	($number, $string): $null,
+	($number, $number): $null,
+	($number, $bool): $null,
+	($number, $color): $null,
+	($number, $list): $null,
+	($number, $map): $null,
+	($number, $null): $null,
+	($bool, $string): $null,
+	($bool, $number): $null,
+	($bool, $bool): $null,
+	($bool, $color): $null,
+	($bool, $list): $null,
+	($bool, $map): $null,
+	($bool, $null): $null,
+	($color, $string): $null,
+	($color, $number): $null,
+	($color, $bool): $null,
+	($color, $color): $null,
+	($color, $list): $null,
+	($color, $map): $null,
+	($color, $null): $null,
+	($list, $string): $null,
+	($list, $number): $null,
+	($list, $bool): $null,
+	($list, $color): $null,
+	($list, $list): $null,
+	($list, $map): $null,
+	($list, $null): $null,
+	($map, $string): $null,
+	($map, $number): $null,
+	($map, $bool): $null,
+	($map, $color): $null,
+	($map, $list): $null,
+	($map, $map): map-merge($map, $map),
+	($map, $null): $null,
+	($null, $string): $null,
+	($null, $number): $null,
+	($null, $bool): $null,
+	($null, $color): $null,
+	($null, $list): $null,
+	($null, $map): $null,
+	($null, $null): $null,
+	($test1a, $test1b): $test1result,
+	($test2a, $test2b): $test2result,
+	($test3a, $test3b): $test3result,
+	($test4a, $test4b): $test4result
 );
 
 @include run(test('recursive-map-merge', $tests-recursive-map-merge));
