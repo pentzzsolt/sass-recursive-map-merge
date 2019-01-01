@@ -38,22 +38,89 @@ $test2b: (
 	1: 1,
 	2: 2
 );
-$test2result: (
-	1: 1,
-	2: 2
-);
+$test2result: map-merge($test2a, $test2b);
 $test3a: (
 	1: 1,
 	2: 2
 );
 $test3b: ();
-$test3result: (
-	1: 1,
-	2: 2
-);
+$test3result: map-merge($test3a, $test3b);
 $test4a: ();
 $test4b: ();
 $test4result: ();
+$test5a: (
+	1: 1,
+	2: 2
+);
+$test5b: (
+	1: 1,
+	4: 4
+);
+$test5result: map-merge($test5a, $test5b);
+
+/* Two-dimensional maps.
+   ========================================================================== */
+$test6a: (
+	1: (
+		1: 1,
+		2: 2
+	),
+	2: 2
+);
+$test6b: (
+	3: (
+		1: 1,
+		2: 2
+	),
+	4: 4
+);
+$test6result: map-merge($test6a, $test6b);
+$test7a: (
+	1: (
+		1: 1,
+		2: 2
+	)
+);
+$test7b: (
+	1: (
+		3: 3,
+		4: 4
+	)
+);
+$test7result: (
+	1: (
+		map-merge(map-get($test7a, 1), map-get($test7b, 1))
+	)
+);
+$test8a: (
+	1: (
+		1: 1,
+		2: 2
+	)
+);
+$test8b: (
+	1: (
+		2: 2,
+		3: 3
+	)
+);
+$test8result: (
+	1: (
+		map-merge(map-get($test8a, 1), map-get($test8b, 1))
+	)
+);
+$test9a: (
+	1: (
+		1: 1,
+		2: 2
+	)
+);
+$test9b: (
+	1: $string
+);
+$test9result: (
+	1: $null
+);
 $tests-recursive-map-merge: (
 	($string, $string): $null,
 	($string, $number): $null,
@@ -107,7 +174,12 @@ $tests-recursive-map-merge: (
 	($test1a, $test1b): $test1result,
 	($test2a, $test2b): $test2result,
 	($test3a, $test3b): $test3result,
-	($test4a, $test4b): $test4result
+	($test4a, $test4b): $test4result,
+	($test5a, $test5b): $test5result,
+	($test6a, $test6b): $test6result,
+	($test7a, $test7b): $test7result,
+	($test8a, $test8b): $test8result,
+	($test9a, $test9b): $test9result
 );
 
 @include run(test("recursive-map-merge", $tests-recursive-map-merge));
